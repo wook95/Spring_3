@@ -19,23 +19,33 @@ public class MemberDAO {
 	
 	//login - id pw를 받아서 조회
 	
-		public MemberDTO memberLogin(MemberDTO memberDTO)throws Exception{
-			
+	public int memberJoin(MemberDTO mDTO) throws Exception{
+		
+		//새로운 멤버 입
+		
+		//insert into member values
+		
+		return 0;
+	}
 
-			//id, pw 	받아서 출력 전체
-			
-			return memberDTO;
-		}
-
-		public int memberJoin(MemberDTO mDTO) throws Exception{
-			
-			//새로운 멤버 입
-			
-			return 0;
-		}
+	public MemberDTO memberLogin(MemberDTO memberDTO)throws Exception{
+		
+		
+		//id, pw 	받아서 출력 전체
+		
+		//select * from member where id=? pw=?
+		
+		
+		return memberDTO;
+	}
 		
 		
 		public int memberDelete(MemberDTO memberDTO) throws Exception {
+			
+			
+			
+			//Delete member where id=?
+			
 			
 			
 			return 0;
@@ -44,6 +54,8 @@ public class MemberDAO {
 		
 		public int memberUpdate(MemberDTO memberDTO) throws Exception{
 			
+			
+			//update member set name = 'ddd', phone='' wehre id='222'
 			return 0;
 		}
 		

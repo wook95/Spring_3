@@ -4,15 +4,20 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-    <mapper namespace="com.arc.s3">
+    <mapper namespace="com.arc.s3.member.MemberDAO">
     
     
     
-    <insert id=""></insert>
+    <insert id="memberJoin" parameterType="om.arc.s3.member.MemberDAO" >
     
     
+    </insert>
     
+    <select id=""></select>
     
+    <update id=""></update>
+    
+    <delete id=""></delete>
     
     
     
