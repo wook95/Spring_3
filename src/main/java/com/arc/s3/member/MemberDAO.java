@@ -36,9 +36,9 @@ public class MemberDAO {
 		
 		//id, pw 	받아서 출력 전체
 		//select * from member where id=? pw=?
-		memberDTO = sqlSession.selectOne(NAMESPACE+".memberLogin", memberDTO);
+		return sqlSession.selectOne(NAMESPACE+".memberLogin", memberDTO);
 		
-		return memberDTO;
+	
 	}
 		
 		

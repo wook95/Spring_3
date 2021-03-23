@@ -14,9 +14,9 @@
     
     </insert>
     
- 	 <select id="memberLogin" parameterType="com.arc.s3.member.MemberDAO">
+ 	 <select id="memberLogin" parameterType="com.arc.s3.member.MemberDAO" resultType="com.arc.s3.member.MemberDAO">
  	 
- 	 select * from member where id=#{id},pw=#{pw}
+ 	 select * from member where id=#{id} and pw=#{pw}
  	 
  	 </select>
     
