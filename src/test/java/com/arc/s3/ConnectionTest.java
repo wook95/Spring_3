@@ -21,7 +21,7 @@ public class ConnectionTest extends MyAbstractTest{
 	public void connectionTest() throws Exception {
 		
 		assertNotNull(sqlSession);
-		
+	//member
 		
 		
 	}

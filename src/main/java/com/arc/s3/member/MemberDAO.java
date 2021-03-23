@@ -16,6 +16,8 @@ public class MemberDAO {
 	
 	@Autowired
 	private SqlSession sqlSession;
+	//xml에서 만든 개체라 오토 와이어드 해줬다
+	
 	private String NAMESPACE = "com.arc.s3.member.MemberDAO";
 	
 	
