@@ -45,12 +45,10 @@ public class MemberDAO {
 		public int memberDelete(MemberDTO memberDTO) throws Exception {
 			
 			
+			return sqlSession.delete(NAMESPACE+".memberDelete", memberDTO);
 			
-			//Delete member where id=?
+		
 			
-			
-			
-			return 0;
 		}
 		
 		

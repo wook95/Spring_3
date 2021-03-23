@@ -29,9 +29,13 @@
       </update>
     
     
-    <!--  
-  <delete id=""></delete>
-     -->
+    
+  <delete id="memberDelete" parameterType="com.arc.s3.member.MemberDTO">
+  
+  Delete member where id=#{id}
+  
+  </delete>
+    
     
     
     
