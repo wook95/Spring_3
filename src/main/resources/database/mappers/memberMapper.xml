@@ -8,7 +8,7 @@
     
     
     
-    <insert id="memberJoin" parameterType="om.arc.s3.member.MemberDAO" >
+    <insert id="memberJoin" parameterType="com.arc.s3.member.MemberDAO" >
     
     insert into member values (#{id},#{pw},#{name},#{phone},#{email})
     

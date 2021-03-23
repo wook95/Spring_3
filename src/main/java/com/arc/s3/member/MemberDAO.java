@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 
@@ -13,7 +14,8 @@ public class MemberDAO {
 
 	
 
-	
+	private SqlSession sqlSession;
+	private String NAMESPACE = "com.arc.s3.member.MemberDAO";
 	
 	
 	
@@ -22,10 +24,10 @@ public class MemberDAO {
 	public int memberJoin(MemberDTO mDTO) throws Exception{
 		
 		//새로운 멤버 입
-		
 		//insert into member values (,,,,)
+		return sqlSession.insert(NAMESPACE+".memberJoin", mDTO);
 		
-		return 0;
+		
 	}
 
 	public MemberDTO memberLogin(MemberDTO memberDTO)throws Exception{
