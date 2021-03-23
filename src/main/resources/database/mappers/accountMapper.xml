@@ -23,4 +23,18 @@
 	</select>
 
 
+	<delete id="setDelete" parameterType="com.arc.s3.account.AccountDTO">
+	
+	delete account where accountId=#{accountId}
+	
+	
+	</delete>
+
+
+
+	<update id="setUpdate" parameterType="com.arc.s3.account.AccountDTO" >	
+	update account set accountName=#{accountName}, rate=#{rate}, accountSale=#{accountSale} where accountId=#{accountId}
+	
+	</update>
+
 </mapper>

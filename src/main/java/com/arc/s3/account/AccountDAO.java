@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class AccountDAO {
-
+	
 	@Autowired
 	private SqlSession sqlSession;
 	private final String NAMESPACE ="com.arc.s3.account.AccountDAO";
@@ -31,7 +31,7 @@ public class AccountDAO {
 	public List<AccountDTO> getList() throws Exception{
 	
 		
-	return	sqlSession.selectList(NAMESPACE+"getList");
+	return	sqlSession.selectList(NAMESPACE+".getList");
 		
 		
 	
@@ -59,8 +59,17 @@ public class AccountDAO {
 		
 	}
 	
+	public int setDelete(AccountDTO accountDTO) throws Exception {
+		
+		
+		
+		return sqlSession.delete(NAMESPACE+".setDelete",accountDTO);
+	}
 	
-	
-	
+public int setUpdate(AccountDTO accountDTO) throws Exception{
+		
+		return sqlSession.update(NAMESPACE+".setUpdate",accountDTO);
+		
+	}
 	
 }
