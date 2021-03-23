@@ -16,7 +16,7 @@ public class memberTest extends MyAbstractTest{
 	@Autowired
 	private MemberDAO memberDAO;
 	
-//	@Test
+	
 //	public void memberJoinTest() throws Exception{
 //		
 //		MemberDTO memberDTO = new MemberDTO();
@@ -31,8 +31,8 @@ public class memberTest extends MyAbstractTest{
 //		
 //		assertNotEquals(0,result);
 //	}
-
-//	@Test
+//
+//	
 //	public void memberLoginTest() throws Exception {
 //		
 //		MemberDTO memberDTO = new MemberDTO();
@@ -44,14 +44,19 @@ public class memberTest extends MyAbstractTest{
 //		
 //	}
 	
-	public void memberUpdateTest() throws Exception{
-		
-		
-		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("id5");
-		memberDTO.setPw("0905");
-		memberDTO = memberDAO.memberLogin(memberDTO);
-		
+//	@Test
+//	public void memberUpdateTest() throws Exception{
+//		
+//		
+//		MemberDTO memberDTO = new MemberDTO();
+//		memberDTO.setId("id5");
+//		memberDTO.setPw("0905");
+//		memberDTO = memberDAO.memberLogin(memberDTO);
+//		
+//		memberDTO.setName("dustntl");
+//		
+//		int result = memberDAO.memberUpdate(memberDTO);
+//		assertNotEquals(0, result);
 		
 		
 	}
