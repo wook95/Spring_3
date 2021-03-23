@@ -56,9 +56,10 @@ public class MemberDAO {
 		
 		public int memberUpdate(MemberDTO memberDTO) throws Exception{
 			
+		return	sqlSession.update(NAMESPACE+".memberUpdate", memberDTO);
 			
 			//update member set name = 'ddd', phone='' wehre id='222'
-			return 0;
+			
 		}
 		
 		

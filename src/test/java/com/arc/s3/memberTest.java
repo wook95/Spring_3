@@ -32,14 +32,26 @@ public class memberTest extends MyAbstractTest{
 //		assertNotEquals(0,result);
 //	}
 
-	@Test
-	public void memberLoginTest() throws Exception {
+//	@Test
+//	public void memberLoginTest() throws Exception {
+//		
+//		MemberDTO memberDTO = new MemberDTO();
+//		memberDTO.setId("id5");
+//		memberDTO.setPw("0905");
+//		
+//		memberDTO=memberDAO.memberLogin(memberDTO);
+//		assertNotNull(memberDTO);
+//		
+//	}
+	
+	public void memberUpdateTest() throws Exception{
+		
 		
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("id5");
 		memberDTO.setPw("0905");
+		memberDTO = memberDAO.memberLogin(memberDTO);
 		
-		memberDTO=memberDAO.memberLogin(memberDTO);
 		
 		
 	}
