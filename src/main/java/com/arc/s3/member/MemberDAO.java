@@ -23,7 +23,7 @@ public class MemberDAO {
 		
 		//새로운 멤버 입
 		
-		//insert into member values
+		//insert into member values (,,,,)
 		
 		return 0;
 	}

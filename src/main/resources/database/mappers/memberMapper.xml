@@ -10,6 +10,7 @@
     
     <insert id="memberJoin" parameterType="om.arc.s3.member.MemberDAO" >
     
+    insert into member values (#{id},#{pw},#{name},#{phone},#{email})
     
     </insert>
     
