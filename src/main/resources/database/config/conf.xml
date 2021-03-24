@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+  <configuration>
+  
+  
+  	<typeAliases>
+  		<typeAlias type="com.arc.s3.member.MemberDTO" alias="MemberDTO"/>
+  		<typeAlias type="com.arc.s3.account.AccountDTO" alias="AccountDTO"/>
+  	</typeAliases>
+  	
+  	
+  	
+  </configuration>
+
+
+  <!-- 이렇게만 하면 마이바티스는 뭔지 모른다,,, 루트로 가서 알려줘야해 -->

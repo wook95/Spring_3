@@ -8,21 +8,21 @@
     
     
     
-    <insert id="memberJoin" parameterType="com.arc.s3.member.MemberDTO" >
+    <insert id="memberJoin" parameterType="MemberDTO" >
     
     insert into member values (#{id},#{pw},#{name},#{phone},#{email})
     
     </insert>
     
- 	 <select id="memberLogin" parameterType="com.arc.s3.member.MemberDTO" resultType="com.arc.s3.member.MemberDTO" >
+ 	 <select id="memberLogin" parameterType="MemberDTO" resultType="com.arc.s3.member.MemberDTO" >
  	 
  	 select * from member where id=#{id} and pw=#{pw}
  	 
  	 </select>
     
      
-     
-      <update id="memberUpdate" parameterType="com.arc.s3.member.MemberDTO">
+     <!-- 엘리아스로 conf에서 선언하고, 루트에 말해줬다 -->
+      <update id="memberUpdate" parameterType="MemberDTO">
       
       update member set name =#{name}, phone=#{phone} where id=#{id}
       
