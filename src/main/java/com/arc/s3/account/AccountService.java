@@ -27,7 +27,15 @@ public class AccountService {
 	}
 	
 	
+	public int setDelte(AccountDTO accountDTO) throws Exception {
 	
+	return accountDAO.setDelete(accountDTO);
+	}
+	
+	public int setUpdate(AccountDTO accountDTO) throws Exception{
+		
+		return accountDAO.setUpdate(accountDTO);		
+	}
 	
 	
 }

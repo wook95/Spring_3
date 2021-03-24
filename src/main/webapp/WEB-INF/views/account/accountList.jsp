@@ -25,9 +25,9 @@
 			</thead>
 		
 			<tbody>
-			<c:forEach items="${list }" vat="dto">
+			<c:forEach items="${list }" var="dto">
 				<tr>
-					<td> ${dto.accountName}</td>
+					<td><a href="./accountSelect?accountId=${dto.accountId}"> ${dto.accountName} </a></td>
 					<td>${dto.rate }</td>
 					<td>${dto.accountSale }</td>
 				</tr>

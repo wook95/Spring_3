@@ -9,7 +9,12 @@
 	Hello world!  
 </h1>
 
-<a href="./account/accountList" >accountList</a>
+<a href="./account/accountList" >accountList</a> <br>
+
+<a href="./member/memberJoin">Join</a><br>
+<a href="./member/memberLogin">Login</a><br>
+
+
 
 <P>  The time on the server is ${serverTime}. </P>
 </body>
