@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,9 +25,7 @@ public class MemberController {
 	@RequestMapping (value = "memberLogin", method = RequestMethod.POST)
 	public String memberLogin(MemberDTO memberDTO, HttpSession session) throws Exception {
 		memberDTO = memberService.memberLogin(memberDTO);
-		session.setAttribute("member",memberDTO);
-		System.out.println(memberDTO);
-		
+		session.setAttribute("member",memberDTO);		
 		return "redirect:../";
 	}
 	
@@ -45,4 +44,41 @@ public class MemberController {
 		
 	}
 	
+	@RequestMapping (value = "memberLogout")
+	public String memberLogout(HttpSession session) throws Exception {
+		
+		session.invalidate();
+		return "redirect:../";
+	}
+	
+	@RequestMapping(value = "memberPage")
+	public void memberPage() throws Exception{
+	}
+	
+	@RequestMapping(value= "memberDelete" )
+	public String memberDelete(MemberDTO memberDTO,HttpSession session) throws Exception{
+		memberDTO = (MemberDTO) session.getAttribute("member");
+		int result = memberService.memberDelete(memberDTO);
+		session.invalidate();
+		return "redirect:../";
+	}
+	
+	@RequestMapping(value = "memberUpdate")
+	public void memberUpdate() throws Exception{
+		
+
+		
+	}
+	
+	@RequestMapping(value = "memberUpdate", method=RequestMethod.POST)
+	public String memberUpdate(MemberDTO memberDTO,HttpSession session) throws Exception{
+		
+
+		int result = memberService.memberUpdate(memberDTO);
+		session.setAttribute("member", memberDTO);
+		
+		
+		return "redirect:../";
+		
+	}
 }

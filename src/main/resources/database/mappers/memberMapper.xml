@@ -24,7 +24,7 @@
      <!-- 엘리아스로 conf에서 선언하고, 루트에 말해줬다 -->
       <update id="memberUpdate" parameterType="MemberDTO">
       
-      update member set name =#{name}, phone=#{phone} where id=#{id}
+      update member set pw=#{pw}, name =#{name}, phone=#{phone},email=#{email} where id=#{id}
       
       </update>
     

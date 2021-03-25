@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html>
@@ -20,6 +22,7 @@
 
 
 <c:if test="${not empty member }">
+<h3> ${member.id}님 환영합니다.</h3>
 <a href="./member/memberPage">Mypage</a><br>
 <a href="./member/memberLogout">Logout</a><br>
 </c:if>
