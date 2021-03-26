@@ -21,6 +21,7 @@
 
 <a href="./memberUpdate">정보수정</a>
 <a href="./memberDelete">탈퇴</a>
+<a href="../privateAccount/privateAccountList">계좌관리</a>
 
 </body>
 </html>

@@ -10,6 +10,8 @@
   	<typeAliases>
   		<typeAlias type="com.arc.s3.member.MemberDTO" alias="MemberDTO"/>
   		<typeAlias type="com.arc.s3.account.AccountDTO" alias="AccountDTO"/>
+  		<typeAlias type="com.arc.s3.privateAccount.PrivateAccountDTO" alias="PrivateAccountDTO"/>
+  		
   	</typeAliases>
   	
   	

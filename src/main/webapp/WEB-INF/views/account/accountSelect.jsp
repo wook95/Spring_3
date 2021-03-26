@@ -5,9 +5,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<c:import url="../template/bootStrap.jsp"></c:import>
+
 <title>Insert title here</title>
 </head>
+
+
+
 <body>
+
+	<c:import url="../template/header.jsp"></c:import>
 
 	<h1>account select page</h1>
 	
@@ -19,6 +28,9 @@
 	<a href="./accountDelete?accountId=${dto.accountId}">	delete	</a>
 	<a href="./accountUpdate?accountId=${dto.accountId}">update</a>
 	</c:if>
+
+
+	<a href="../privateAccount/privateAccountInsert?accountId=${dto.accountId}">계좌 개설</a>
 
 </body>
 </html>
