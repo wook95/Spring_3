@@ -11,6 +11,8 @@
   		<typeAlias type="com.arc.s3.member.MemberDTO" alias="MemberDTO"/>
   		<typeAlias type="com.arc.s3.account.AccountDTO" alias="AccountDTO"/>
   		<typeAlias type="com.arc.s3.privateAccount.PrivateAccountDTO" alias="PrivateAccountDTO"/>
+  		<typeAlias type="com.arc.s3.notice.NoticeDTO" alias="NoticeDTO"/>
+  		<typeAlias type="com.arc.s3.util.Pager" alias="Pager"/>
   		
   	</typeAliases>
   	

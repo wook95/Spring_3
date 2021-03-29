@@ -45,5 +45,48 @@
 
 
 
+<!--
+
+	기능 
+	글리스트 - 모두 접근가능
+	상세보기 - 모두 접근 가능 글리스트에서 제목을 클릭
+	글 수정 - 관리자만 접근(공지사항)
+	글 삭제 - ''
+	글 작성 - ''
+
+back-end
+	noticeMapper
+		-com.arc.s3.notice
+	
+	NoticeDTO
+	NoticeDAO
+		-getList : want to see list
+		-getSelect : specification
+		-setInsert : write
+		-setUpdate : alter
+		-setDelete : remove
+		-setHitUpdate : increase views (when you select)
+	NoticeService
+		- dao와 동일, hit와 select 동시 호출
+	NoticeController
+		- 메서드 같이같다.
+		- insert, update need two methods
+
+front-end
+	- / WEB-INF/views/notice
+
+	 글 리스트
+	 /notice/noticeList	   -- noticeList.jsp
+	 /notice/noticeSeleect -- noticeSelect.jsp
+	 /notice/notieInsert   -- noticeInsert.jsp
+	 			(post)	   -- 글리스트로 이동
+	 /notice/noticeUpdate  -- noticeUpdate.jsp
+	 					   -- 글리스트로 이동
+	 /notice/noticeDelete  -- 글리스트로 이동
+
+  -->
+
+
+
 </body>
 </html>
