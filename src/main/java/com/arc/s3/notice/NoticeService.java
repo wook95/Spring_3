@@ -46,11 +46,11 @@ public class NoticeService {
 		pager.setLastRow(lastRow);
 		
 		
-		// 	1. totalCount			밑에 써질 번호,
-		long totalCount = noticeDAO.getTotalCount();
+		// 	1. totalCount	총 갯수//	
+		long totalCount = noticeDAO.getTotalCount(pager);
 		
 		
-		//	2. totlaPage
+		//	2. totlaPage  //마지막 페이지 (밑에 써질 번호)
 		long totalPage = totalCount / perPage;		//9.5
 		if(totalCount%perPage != 0) {
 			totalPage++;
@@ -58,7 +58,7 @@ public class NoticeService {
 		
 		
 		
-		//	3. totalBlock (페이지 밑에 있는 게시물을 나누는 인덱스)
+		//	3. totalBlock (페이지 밑에 있는 번호들의 집합인데 그중 끝)
 		
 		
 //		long totalBlock = (long)Math.ceil((double)totalPage/perBlock);
@@ -72,14 +72,36 @@ public class NoticeService {
 		long curBlock = (pager.getCurPage() / perBlock);
 		if (pager.getCurPage() % perBlock !=0)curBlock++;
 		
-		System.out.println("total block"+totalBlock);	
-		System.out.println("블럭 번호 : " +curBlock);
+		
 		
 		
 		//5. startNum, lastNum --> 둘다 jsp 로 보내줘야 ,,
 		
 		long startNum= (curBlock-1)*perBlock+1;
 		long lastNum = curBlock*perBlock;
+		
+		//6. 마지막 블럭의 마지막번호에서 끝나고 싶을떄 ,,
+		// curBlock이 마지막 block (total block)
+		
+		if(curBlock==totalBlock) {
+			lastNum = totalPage;
+		}
+		
+		
+		
+		
+		//7. 이전, 다음 block 존재 여부
+		
+		//이전
+		if(curBlock != 1) {
+			pager.setPre(true);
+		}
+		//다음
+		if(curBlock != totalBlock) {
+			pager.setNext(true);
+		}
+		
+		
 		
 		
 		

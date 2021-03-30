@@ -10,15 +10,33 @@
   	<select id="getList" parameterType="Pager" resultType="com.arc.s3.notice.NoticeDTO">
   	select * from
 	(select rownum R, N.* from 
-	(select * from notice order by num desc) N)
+	(select * from notice where
+	<choose>
+		<when test ="kind=='Writer'">Writer</when>
+		<when test ="kind=='Contents'">Contents</when>
+		<otherwise>Title</otherwise>
+	</choose>
+	like '%'||#{search}||'%' and num>0 order by num desc) N)
 	where R between #{startRow} and #{lastRow}	  
   	</select>
   
   
-  	<select id="getTotalCount"  resultType="java.lang.Long">
+  	<select id="getTotalCount"  parameterType="Pager" resultType="java.lang.Long">
   	
  	select count(num) from notice
-  	
+ 	where
+ 	<choose>
+ 		<when test ="kind == 'Writer'">
+ 			writer
+ 		</when>
+ 		<when test ="kind == 'Contents'">
+ 			contents
+ 		</when>
+ 		<otherwise>
+ 		title
+ 		</otherwise>
+ 	</choose>
+  		like '%'||#{search}||'%' and num>0 	
   	</select>
   
   

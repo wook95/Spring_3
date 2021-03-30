@@ -9,19 +9,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+<link rel="stylesheet" href="./resources/css/test.css">
 <!-- Bootstrap CSS -->
 <c:import url="./template/bootStrap.jsp"></c:import>
+
+<script type="text/javascript">
+alert('hello World');
+</script>
+
 <title>Hello, world!</title>
 </head>
 <body>
-
 
 	<c:import url="./template/header.jsp"></c:import>
 
 
 
 	<h1>Home world!</h1>
-
+	<h2> hi</h2>
 	<a href="./account/accountList">accountList</a>
 	<br>
 
@@ -43,7 +49,7 @@
 		<br>
 	</c:if>
 
-
+	<img alt="picture" src="./resources/images/02.png">
 
 <!--
 
@@ -76,7 +82,7 @@ front-end
 	- / WEB-INF/views/notice
 
 	 글 리스트
-	 /notice/noticeList	   -- noticeList.jsp
+	 /notice/noticeList	   -- noticeLists.jsp
 	 /notice/noticeSeleect -- noticeSelect.jsp
 	 /notice/notieInsert   -- noticeInsert.jsp
 	 			(post)	   -- 글리스트로 이동
@@ -86,7 +92,7 @@ front-end
 
   -->
 
-
+<script type="text/javascript" src="./resources/js/test.js"></script>
 
 </body>
 </html>

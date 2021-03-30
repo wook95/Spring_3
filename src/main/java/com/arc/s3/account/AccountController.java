@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.arc.s3.util.Pager;
+
 
 
 @Controller
@@ -22,10 +24,11 @@ public class AccountController {
 	
 	
 	@RequestMapping(value = "accountList")
-	public void getList(Model model) throws Exception{
+	public void getList(Model model,Pager pager) throws Exception{
 		
-		List<AccountDTO> ar = accountService.getList();
+		List<AccountDTO> ar = accountService.getList(pager);
 		model.addAttribute("list",ar);
+		model.addAttribute("pager", pager);
 		//jsp로 메서드 보내줌
 		
 	}

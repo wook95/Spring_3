@@ -8,29 +8,46 @@
 
 
 
-	<insert id="setWrite" parameterType="com.arc.s3.account.AccountDTO">
-		insert into account values(bank_seq.nextval,#{accountName},#{rate},#{accountSale})
+	<insert id="setWrite"
+		parameterType="com.arc.s3.account.AccountDTO">
+		insert into account
+		values(bank_seq.nextval,#{accountName},#{rate},#{accountSale})
 	</insert>
 
-	<select id="getSelect" parameterType="com.arc.s3.account.AccountDTO" resultType="com.arc.s3.account.AccountDTO">
-	select * from account where accountId=#{accountId}
+	<select id="getSelect"
+		parameterType="com.arc.s3.account.AccountDTO"
+		resultType="com.arc.s3.account.AccountDTO">
+		select * from account where accountId=#{accountId}
+	</select>
+
+	<select id="getTotalCount" resultType="java.lang.Long">
+
+		select count(accountId) from account
 	</select>
 
 
+	<select id="getList" parameterType="com.arc.s3.util.Pager" resultType="com.arc.s3.account.AccountDTO">
 
-	<select id="getList" resultType="com.arc.s3.account.AccountDTO">
-	select * from account order by accountId desc
+		select * from
+		(select rowNum R, a.* from
+		(select * from account order by accountid desc) a)
+		where R between ${startRow} and ${lastRow}
+
+
 	</select>
 
 
-	<delete id="setDelete" parameterType="com.arc.s3.account.AccountDTO">
-	delete account where accountId=#{accountId}
+	<delete id="setDelete"
+		parameterType="com.arc.s3.account.AccountDTO">
+		delete account where accountId=#{accountId}
 	</delete>
 
 
 
-	<update id="setUpdate" parameterType="com.arc.s3.account.AccountDTO" >	
-	update account set accountName=#{accountName}, rate=#{rate}, accountSale=#{accountSale} where accountId=#{accountId}
+	<update id="setUpdate"
+		parameterType="com.arc.s3.account.AccountDTO">
+		update account set accountName=#{accountName}, rate=#{rate},
+		accountSale=#{accountSale} where accountId=#{accountId}
 	</update>
 
 </mapper>

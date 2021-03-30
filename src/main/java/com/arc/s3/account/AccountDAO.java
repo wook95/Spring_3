@@ -11,6 +11,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.arc.s3.util.Pager;
+
 
 
 @Repository
@@ -24,14 +26,17 @@ public class AccountDAO {
 	
 	
 	
-	
-	
-	
-	
-	public List<AccountDTO> getList() throws Exception{
-	
+	public long getTotalCount()throws Exception{
 		
-	return	sqlSession.selectList(NAMESPACE+".getList");
+		return sqlSession.selectOne(NAMESPACE+".getTotalCount");
+	}
+	
+	
+	
+	public List<AccountDTO> getList(Pager pager) throws Exception{
+		
+		
+	return	sqlSession.selectList(NAMESPACE+".getList",pager);
 		
 		
 	
