@@ -23,12 +23,13 @@
 	<h3> name : ${dto.accountName} </h3>
 	<h3> Number : ${dto.accountId} </h3>
 
-
+	
+	<c:catch>
 	<c:if test="${not empty member and member.id eq 'admin'}">
 	<a href="./accountDelete?accountId=${dto.accountId}">	delete	</a>
 	<a href="./accountUpdate?accountId=${dto.accountId}">update</a>
 	</c:if>
-
+	</c:catch>
 
 	<a href="../privateAccount/privateAccountInsert?accountId=${dto.accountId}">계좌 개설</a>
 

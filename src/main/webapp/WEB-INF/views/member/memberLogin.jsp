@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">	
+<meta charset="UTF-8">
 <c:import url="../template/bootStrap.jsp"></c:import>
 
 
@@ -17,43 +17,35 @@
 <body>
 
 
-<c:import url="../template/header.jsp"></c:import>
-	<h1>login</h1>
-	<div class="container">
-		<div class="dropdown-menu">
-			<form class="px-4 py-3" action="./memberLogin" method="post">
-				<div class="mb-3">
-					<label for="id" class="form-label">Email address</label> <input
-						type="text" class="form-control" id="id" name = "id"
-						placeholder="email@example.com">
-				</div>
-				<div class="mb-3">
-					<label for="pw" class="form-label">Password</label>
-					<input type="password" class="form-control"
-						id="pw" name="pw" placeholder="Password">
-				</div>
-				<div class="mb-3">
-					<div class="form-check">
-						<input type="checkbox" class="form-check-input" id="dropdownCheck">
-						<label class="form-check-label" for="dropdownCheck">
-							Remember me </label>
-					</div>
-				</div>
-				<button type="submit" class="btn btn-primary">Sign in</button>
-			</form>
-		</div>
+	<c:import url="../template/header.jsp"></c:import>
+
+	
+	
+	<div class="container mt-2" >
+		<h2 class="mt-4">Member Login Page</h2>
+	
+		<form action="./memberLogin" method="post">
+			<div class="form-group">
+				<label for="id">ID</label> 
+				<input type="text" class="form-control" id="id" name="id"
+					aria-describedby="idlHelp"> 
+					<small id="idlHelp"	class="form-text text-muted">
+						We'll never share your email with anyone else.
+					</small>
+			</div>
+			<div class="form-group">
+				<label for="pw">Password</label> 
+				<input type="password" class="form-control" id="pw" name="pw">
+			</div>
+			<div class="form-group form-check">
+				<input type="checkbox" class="form-check-input" id="exampleCheck1">
+				<label class="form-check-label" for="exampleCheck1">Check me
+					out</label>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
 	</div>
 
-
-
-
-
-	<form action="memberLogin" method="post">
-
-		id<input type="text" name="id"> <br> pw<input
-			type="password" name="pw"> <br>
-		<button>log in</button>
-	</form>
 
 
 

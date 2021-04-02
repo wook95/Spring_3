@@ -1,5 +1,7 @@
 package com.arc.s3.member;
 
+import java.util.Random;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,11 @@ public class MemberController {
 		return "redirect:../";
 	}
 	
+	@RequestMapping(value = "memberJoinCheck")
+	public void memberJoinCheck()throws Exception{
+		
+	}
+	
 	
 	@RequestMapping (value = "memberJoin")
 	public void memberJoin() throws Exception{
@@ -37,10 +44,24 @@ public class MemberController {
 	
 	
 	@RequestMapping (value = "memberJoin", method = RequestMethod.POST)
-	public String memberJoin(MemberDTO memberDTO) throws Exception{
+	public String memberJoin(MemberDTO memberDTO,Model model) throws Exception{
+//		int result  = memberService.memberJoin(memberDTO);
 		
-		int result  = memberService.memberJoin(memberDTO);
-		return "redirect:../";
+		Random random = new Random();
+		int result = random.nextInt(2);
+		String message = "회원가입실패";
+		String path = "./memberJoin";
+		
+		if(result>0) {
+		message ="회원이 되었습니다!";
+		path="../";
+		}
+		
+		model.addAttribute("msg",message);
+		model.addAttribute("result",result);
+		model.addAttribute("path",path);
+		
+		return "common/commonResult";
 		
 	}
 	

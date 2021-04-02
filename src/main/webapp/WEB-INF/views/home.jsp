@@ -15,7 +15,7 @@
 <c:import url="./template/bootStrap.jsp"></c:import>
 
 <script type="text/javascript">
-alert('hello World');
+
 </script>
 
 <title>Hello, world!</title>
@@ -24,16 +24,61 @@ alert('hello World');
 
 	<c:import url="./template/header.jsp"></c:import>
 
+	<div id=ddd1></div>
+	<button onclick="go()">button</button>
+	<button id ="btn">click</button>
+	<button id ="btn2">click2</button>
+	
+	<h1>v1</h1>
 
 
-	<h1>Home world!</h1>
-	<h2> hi</h2>
-	<a href="./account/accountList">accountList</a>
-	<br>
 
 
 
-	<c:if test="${empty member }">
+
+
+
+
+
+
+	<script type="text/javascript">
+	
+	let btn = document.getElementById("btn");
+	let btn2 = document.getElementById("btn2");
+	
+	
+	btn2.addEventListener("click",function(){
+		
+		alert("btn2");
+		go();
+		
+	})
+	
+	
+	btn.onclick = function(){
+		alert("나는야 익명 ㅎ,, 함수,, 이름이 없지,,")
+		go();
+	}
+	
+	
+	function go(){
+		
+		alert("hello");
+		
+	}
+	
+	</script>
+
+
+
+
+
+
+
+
+
+
+<%-- 	<c:if test="${empty member }">
 		<a href="./member/memberJoin">Join</a>
 		<br>
 		<a href="./member/memberLogin">Login</a>
@@ -49,7 +94,7 @@ alert('hello World');
 		<br>
 	</c:if>
 
-	<img alt="picture" src="./resources/images/02.png">
+ --%>
 
 <!--
 

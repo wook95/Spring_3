@@ -1,6 +1,7 @@
 package com.arc.s3.notice;
 
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,14 +25,14 @@ public class NoticeController {
 	public String setUpdate(NoticeDTO noticeDTO) throws Exception{
 		
 		int result = noticeService.setUpdate(noticeDTO);
-		return "./accountList";
+		return "notice/accountList";
 		
 	}
 	@RequestMapping(value = "noticeDelete")
 	public String setDelete(NoticeDTO noticeDTO) throws Exception{
 		
 		int result = noticeService.setDelete(noticeDTO);
-		return "./accountList";
+		return "notice/accountList";
 		
 	}
 	
@@ -80,11 +81,22 @@ public class NoticeController {
 	}
 
 	@RequestMapping(value = "noticeInsert", method=RequestMethod.POST)
-	public String setInsert(NoticeDTO noticeDTO) throws Exception{
+	public String setInsert(NoticeDTO noticeDTO,Model model) throws Exception{
 		
 		int result = noticeService.setInsert(noticeDTO);
+
+		String message = "글쓰기 실패 ,,";
 		
-		return "redirect:./noticeList";
+		if(result>0) {
+			message = "공지글 올리기 성공~,~";
+		}
+		String path = "../notice/noticeList";		
+		
+		model.addAttribute("msg",message);
+		model.addAttribute("result",result);
+		model.addAttribute("path",path);
+		
+		return "common/commonResult";
 	}
 		
 	
