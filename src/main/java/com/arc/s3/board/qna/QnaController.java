@@ -62,6 +62,7 @@ public class QnaController {
 		mv.addObject("dto",boardDTO);
 		mv.setViewName("board/boardSelect");
 		
+		
 		return mv;
 		
 	}
@@ -70,8 +71,17 @@ public class QnaController {
 	public String setReply (Model model) throws Exception{
 		
 		model.addAttribute("board","qna");
+	
 		
 		return "board/boardReply";
 	}
 	
+	
+	@PostMapping("qnaReply")
+	public String setReply(QnaDTO qnaDTO) throws Exception{
+		
+		qnaService.setReply(qnaDTO);
+		
+		return "redirect:./qnaList";
+	}
 }
