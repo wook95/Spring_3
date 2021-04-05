@@ -58,6 +58,10 @@
 	
 	
 	
+	<c:if test="${board ne 'notice'}">
+	<a href="./${board}Reply?num=${dto.num}" class="btn btn-primary" >Reply</a>
+	</c:if>
+	
 	
 	
 </body>

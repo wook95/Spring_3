@@ -59,13 +59,19 @@ public class QnaController {
 		ModelAndView mv = new ModelAndView();
 		
 		mv.addObject("board","qna");
-		mv.addObject("dto",mv);
+		mv.addObject("dto",boardDTO);
 		mv.setViewName("board/boardSelect");
 		
 		return mv;
 		
 	}
 	
-	
+	@GetMapping("qnaReply")
+	public String setReply (Model model) throws Exception{
+		
+		model.addAttribute("board","qna");
+		
+		return "board/boardReply";
+	}
 	
 }
