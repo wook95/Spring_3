@@ -1,14 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<c:import url="../template/bootStrap.jsp"></c:import>
+<style>
+  table, th, td {
+    border: 1px solid #bcbcbc;
+  }
+  table {
+    width: 600px;
+    height: 70px;
+  }
+</style>
 <title>Insert title here</title>
 </head>
 <body>
+<c:import url="../template/header.jsp"></c:import>
 
-	<h1>select page</h1>
+	<h1>${board} select</h1>
 	
 	<table>
 	
@@ -38,13 +51,10 @@
 	<h3>${dto.contents}</h3>
 	
 	
-		<form action="./noticeUpdate?num=${dto.num}">
-		<button>Update</button>
-	</form>
 	
-		<form action="./noticeDelete?num=${dto.num}">
-		<button>Delete</button>
-	</form>
+	
+	<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
+	<a href="./${board}Delete?num=${dto.num}" class="btn btn-info">Delete</a>
 	
 	
 	

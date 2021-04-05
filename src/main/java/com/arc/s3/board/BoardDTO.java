@@ -1,16 +1,22 @@
-package com.arc.s3.notice;
+package com.arc.s3.board;
 
 import java.sql.Date;
 
-public class NoticeDTO {
+public class BoardDTO {
 
-	
-	private int num;
+	private long num;
 	private String title;
-	public int getNum() {
+	private String writer;
+	private Date regDate;
+	private long hit;
+	private String contents;
+	
+	
+	
+	public long getNum() {
 		return num;
 	}
-	public void setNum(int num) {
+	public void setNum(long num) {
 		this.num = num;
 	}
 	public String getTitle() {
@@ -19,14 +25,6 @@ public class NoticeDTO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	private String writer;
-	private Date regDate;
-	private int hit;
-	private String contents;
-	
-
-
-	
 	public String getWriter() {
 		return writer;
 	}
@@ -39,10 +37,10 @@ public class NoticeDTO {
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
-	public int getHit() {
+	public long getHit() {
 		return hit;
 	}
-	public void setHit(int hit) {
+	public void setHit(long hit) {
 		this.hit = hit;
 	}
 	public String getContents() {
@@ -51,8 +49,6 @@ public class NoticeDTO {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	
-	
 	
 	
 }

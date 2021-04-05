@@ -15,8 +15,8 @@
 	
 	
  <div class="container">
- <h2>Notice form</h2>
-  <form action="./noticeInsert" method="post" id="frm">
+ <h2> ${board} form</h2>
+  <form action="./${board}Insert" method="post" id="frm">
     <div class="form-group">
       <label for="writer">Writer:</label>
       <input type="text" readonly="readonly" value="${member.id}" class="form-control" id="writer" name="writer">
@@ -32,12 +32,13 @@
     </div>
     
    
-    <input type="button" id="btn" value="WRITE" class="btn btn-primary" onclick="insertCheck()">
+    <input type="submit" id="btn" value="WRITE" class="btn btn-primary" onclick="insertCheck()">
   </form>
 </div>
 
 
-<script type="text/javascript" src="../resources/js/insertCheck.js"></script>
+<!-- 
+<script type="text/javascript" src="../resources/js/insertCheck.js"></script> -->
 		
 	
 </body>

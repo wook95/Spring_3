@@ -1,21 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <c:import url="../template/bootStrap.jsp"></c:import>
 <title>Insert title here</title>
 
 
 </head>
 <body>
-
-	<c:import url="../template/header.jsp"></c:import>
-	<h1>List page</h1>
+<c:import url="../template/header.jsp"></c:import>
+<h1> ${board} page</h1>
 
 
 	<table class="table">
@@ -33,7 +30,14 @@
 			<c:forEach items="${list}" var="dto">
 				<tr>
 					<th scope="row">${dto.num}</th>
-					<td><a href="./noticeSelect?num=${dto.num}">${dto.title}</a></td>
+					<td><a href="./${board}Select?num=${dto.num}">
+					
+					<c:catch>
+					<c:forEach begin="1" end="${dto.depth}"> -- </c:forEach>
+					</c:catch>
+					
+					
+					${dto.title}</a></td>
 					<td>${dto.writer}</td>
 					<td>${dto.regDate}</td>
 					<td>${dto.hit}</td>
@@ -79,8 +83,9 @@
 		</div>
 		
 		
-		<a href="./noticeInsert"><button type="button" class="btn btn-primary">write</button></a>
+		<a href="./${board}Insert"><button type="button" class="btn btn-primary">write</button></a>
 	</nav>
+
 
 
 

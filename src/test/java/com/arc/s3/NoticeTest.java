@@ -7,8 +7,8 @@ import java.util.List;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.arc.s3.notice.NoticeDAO;
-import com.arc.s3.notice.NoticeDTO;
+import com.arc.s3.board.notice.NoticeDAO;
+import com.arc.s3.board.notice.NoticeDTO;
 
 public class NoticeTest extends MyAbstractTest{
 

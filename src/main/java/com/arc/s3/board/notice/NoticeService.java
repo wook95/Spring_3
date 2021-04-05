@@ -1,32 +1,36 @@
-package com.arc.s3.notice;
+package com.arc.s3.board.notice;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
+import com.arc.s3.board.BoardDTO;
+import com.arc.s3.board.BoardService;
 import com.arc.s3.util.Pager;
 
 
 @Service
-public class NoticeService {
+public class NoticeService implements BoardService {
 
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
+
 	
 	
-	
-	
-	public NoticeDTO getSelect(NoticeDTO noticeDTO) throws Exception{
+	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception{
 		
-		return noticeDAO.getSelect(noticeDTO);
+		
+		
+		return noticeDAO.getSelect(boardDTO);
 		
 	}
 	
 	
-	
-	public List<NoticeDTO> getList(Pager pager) throws Exception{
+	@Override
+	public List<BoardDTO> getList(Pager pager) throws Exception{
 		
 //		Pager pager = new Pager();
 //		long perPage   = 10L;
@@ -117,22 +121,26 @@ public class NoticeService {
 	}
 	
 	
-	public int setInsert(NoticeDTO noticeDTO) throws Exception {
+	public int setInsert(BoardDTO boardDTO) throws Exception {
 		
-		return noticeDAO.setInsert(noticeDTO);
-		
-	}
-	public int setUpdate(NoticeDTO noticeDTO) throws Exception {
-		
-		return noticeDAO.setUpdate(noticeDTO);
+		return noticeDAO.setInsert(boardDTO);
 		
 	}
-	public int setDelete(NoticeDTO noticeDTO) throws Exception {
+	public int setUpdate(BoardDTO boardDTO) throws Exception {
 		
-		return noticeDAO.setDelete(noticeDTO);
+		return noticeDAO.setUpdate(boardDTO);
 		
 	}
-	
+	public int setDelete(BoardDTO boardDTO) throws Exception {
+		
+		return noticeDAO.setDelete(boardDTO);
+		
+	}
+
+
+
+
+		
 	
 	
 }
