@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.arc.s3.board.BoardDAO;
 import com.arc.s3.board.BoardDTO;
 import com.arc.s3.util.Pager;
+import com.arc.s3.util.Pager_backup;
 
 @Repository
 public class NoticeDAO implements BoardDAO {
@@ -75,6 +76,8 @@ public class NoticeDAO implements BoardDAO {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+
 
 	
 	

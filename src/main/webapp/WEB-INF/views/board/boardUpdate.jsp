@@ -14,16 +14,16 @@
 <body>
 
 <c:import url="../template/header.jsp"></c:import>
-	<h1>update page</h1>
+	<h1> ${board} update page</h1>
 	
 	
-	<form action="./noticeUpdate" method="post">
+	<form action="./${board}Update" method="post">
 	
 		<input type="hidden" name="num" value="${dto.num}">	
 		title<input type="text" name="title" value="${dto.title}">
      	contents<input type="text" name="contents" value="${dto.contents}">	
      	
-		<button>Update</button>
+		<button id = "btn">Update</button>
 	
 	</form>
 	

@@ -8,6 +8,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.arc.s3.board.BoardDTO;
 import com.arc.s3.util.Pager;
+import com.arc.s3.util.Pager_backup;
 
 @Controller
 @RequestMapping(value = "/notice/**")
@@ -26,24 +29,37 @@ public class NoticeController {
 	
 	
 	
-	
-	@RequestMapping(value = "noticeUpdate")
-	public String setUpdate() throws Exception{
-		System.out.print("11");
-		return "board/boardUpdate";
+	@PostMapping("noticeUpdate")
+	public ModelAndView setUpdate(BoardDTO boardDTO,ModelAndView mv) throws Exception {
 		
-	}
-	
-	
-	
-	@RequestMapping(value = "noticeUpdate", method=RequestMethod.POST)
-	public String setUpdate(BoardDTO boardDTO) throws Exception{
-		System.out.print(boardDTO);
 		int result = noticeService.setUpdate(boardDTO);
-		System.out.println(result); 
 		
+		if(result>0) {
+			mv.setViewName("redirect:./noticeList");
+		}else {
+			mv.addObject("msg", "수정 실패");
+			mv.addObject("path","./noticeList");
+			mv.setViewName("common/commonResult");
+		}
 		
-		return "redirect:../";
+		return mv;
+	}
+	
+	
+	
+	
+	
+	@GetMapping("noticeUpdate")
+	public ModelAndView setUpdate(BoardDTO boardDTO) throws Exception{
+		
+		ModelAndView mv = new ModelAndView();
+		boardDTO = noticeService.getSelect(boardDTO);
+		
+		mv.addObject("dto", boardDTO);
+		mv.addObject("board", "notice");
+		mv.setViewName("board/boardUpdate");
+		
+		return mv;
 		
 	}
 	
@@ -52,13 +68,29 @@ public class NoticeController {
 	
 	
 	
-	@RequestMapping(value = "noticeDelete")
-	public String setDelete(BoardDTO boardDTO) throws Exception{
+
+	
+	
+	@PostMapping("noticeDelete")
+	public ModelAndView setDelete(BoardDTO boardDTO) throws Exception{
 		
+		ModelAndView mv = new ModelAndView();
 		int result = noticeService.setDelete(boardDTO);
-		return "notice/accountList";
 		
+		String message = "삭제 실패";
+		String path = "./noticeList";
+		
+		if(result>0) {
+			message = "삭제 ,, 성공 ,,";
+			
+		}
+		mv.addObject("path", path);
+		mv.addObject("msg", message);
+		mv.setViewName("common/commonResult");
+		
+		return mv;
 	}
+	
 	
 	
 	

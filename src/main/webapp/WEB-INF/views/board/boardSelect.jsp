@@ -54,7 +54,8 @@
 	
 	
 	<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
-	<a href="./${board}Delete?num=${dto.num}" class="btn btn-info">Delete</a>
+	<a href="#" id="del" class="btn btn-info">Delete</a>
+
 	
 	
 	
@@ -63,6 +64,33 @@
 	</c:if>
 	
 	
+	<form action="./${board}Delete" id="frm">
+		<input type = "hidden" name="num" value="${dto.num}">
+	</form>
+	
+	
+	
+	<script type="text/javascript">
+	
+	const frm = document.getElementById("frm");
+	const del = document.getElementById("del");
+	del.addEventListener("click",function(){
+		
+		
+		let result = confirm("delete?");
+		
+		if(result = true){
+		//location.href="./${board}Delete?num=${dto.num}"
+			//frm.method="post"
+			frm.setAttribute("method","post");
+			frm.submit();
+				
+		}
+		
+	})
+	
+	
+	</script>
 	
 </body>
 </html>

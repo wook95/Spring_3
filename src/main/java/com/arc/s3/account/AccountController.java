@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.arc.s3.util.Pager;
+import com.arc.s3.util.Pager_backup;
 
 
 
@@ -24,7 +24,7 @@ public class AccountController {
 	
 	
 	@RequestMapping(value = "accountList")
-	public void getList(Model model,Pager pager) throws Exception{
+	public void getList(Model model,Pager_backup pager) throws Exception{
 		
 		List<AccountDTO> ar = accountService.getList(pager);
 		model.addAttribute("list",ar);

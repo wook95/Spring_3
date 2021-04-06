@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.arc.s3.board.BoardDTO;
 import com.arc.s3.board.BoardService;
 import com.arc.s3.util.Pager;
+import com.arc.s3.util.Pager_backup;
 
 
 @Service
@@ -34,7 +35,7 @@ public class QnaService implements BoardService {
 		int result = qnaDAO.setReplyUpdate(parent);
 		result = qnaDAO.setReply(qnaDTO);
 		
-		return result = result;
+		return result;
 	}
 	
 	
@@ -65,16 +66,15 @@ public class QnaService implements BoardService {
 
 	@Override
 	public int setUpdate(BoardDTO noticeDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return qnaDAO.setUpdate(noticeDTO);
 	}
 
 
 
 	@Override
 	public int setDelete(BoardDTO noticeDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return qnaDAO.setDelete(noticeDTO);
 	}
 
 	

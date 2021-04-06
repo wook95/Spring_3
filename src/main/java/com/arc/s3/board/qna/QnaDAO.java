@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.arc.s3.board.BoardDAO;
 import com.arc.s3.board.BoardDTO;
 import com.arc.s3.util.Pager;
+import com.arc.s3.util.Pager_backup;
 
 
 @Repository
@@ -57,15 +58,14 @@ public class QnaDAO  implements BoardDAO{
 
 	@Override
 	public int setUpdate(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return sqlSession.update(namespace+"setUpdate", boardDTO);
 	}
 
 
 	@Override
 	public int setDelete(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.delete(namespace+"setDelete", boardDTO);
 	}
 	
 	

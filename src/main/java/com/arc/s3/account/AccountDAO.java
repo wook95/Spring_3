@@ -11,7 +11,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.arc.s3.util.Pager;
+import com.arc.s3.util.Pager_backup;
 
 
 
@@ -33,7 +33,7 @@ public class AccountDAO {
 	
 	
 	
-	public List<AccountDTO> getList(Pager pager) throws Exception{
+	public List<AccountDTO> getList(Pager_backup pager) throws Exception{
 		
 		
 	return	sqlSession.selectList(NAMESPACE+".getList",pager);

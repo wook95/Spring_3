@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 
 import com.arc.s3.board.notice.NoticeDTO;
 import com.arc.s3.util.Pager;
+import com.arc.s3.util.Pager_backup;
 
 
 @Service

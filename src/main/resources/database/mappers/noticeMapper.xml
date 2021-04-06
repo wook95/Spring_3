@@ -57,5 +57,9 @@
  	 </update>
   
   
+  	<delete id="setDelete" parameterType="com.arc.s3.board.BoardDTO" >
+  	delete notice where num=#{num}
+  	</delete>
+  
   
   </mapper>  
