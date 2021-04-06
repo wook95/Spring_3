@@ -25,14 +25,18 @@
 	<c:import url="./template/header.jsp"></c:import>
 
 	<div id=ddd1></div>
-	<button onclick="go()">button</button>
-	<button id ="btn">click</button>
-	<button id ="btn2">click2</button>
+	<button onclick="go()" class="b">button</button>
+	<button id ="btn" class="b">click</button>
+	<button id ="btn2" class="b">click2</button>
 	
-	<h1>v1</h1>
+	<h1 id="t">v1</h1>
+	
+	<ol id="result">
+		<li>A</li>
+	</ol>
 
-
-
+	<select id="mon">
+	</select>
 
 
 
@@ -43,29 +47,25 @@
 
 	<script type="text/javascript">
 	
-	let btn = document.getElementById("btn");
-	let btn2 = document.getElementById("btn2");
-	
-	
-	btn2.addEventListener("click",function(){
+		$("#btn2").click(function(){
+			
 		
-		alert("btn2");
-		go();
+			$("#result").prepend('<li>go</li>');
 		
-	})
-	
-	
-	btn.onclick = function(){
-		alert("나는야 익명 ㅎ,, 함수,, 이름이 없지,,")
-		go();
-	}
-	
-	
-	function go(){
 		
-		alert("hello");
+		});
+
 		
-	}
+			
+		for(let i=1; i<13; i++){
+			
+			$("#mon").append("<option>" +i+ "</option>" );
+			
+			
+		}
+			
+			
+			
 	
 	</script>
 

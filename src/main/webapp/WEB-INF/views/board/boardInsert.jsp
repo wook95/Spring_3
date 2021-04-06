@@ -23,22 +23,22 @@
     </div>
     <div class="form-group">
       <label for="title">Title:</label>
-      <input type="text" class="form-control" id="title" name="title">
+      <input type="text" class="form-control myCheck" id="title" name="title">
     </div>
     
     <div class="form-group">
       <label for="contents">Contents:</label>
-      <textarea class="form-control" rows="5" id="contents" name="contents"></textarea>
+      <textarea class="form-control myCheck" rows="5" id="contents" name="contents"></textarea>
     </div>
     
    
-    <input type="submit" id="btn" value="WRITE" class="btn btn-primary" onclick="insertCheck()">
+    <input type="button" id="btn" value="WRITE" class="btn btn-primary myCheck" onclick="insertCheck()">
   </form>
 </div>
 
 
-<!-- 
-<script type="text/javascript" src="../resources/js/insertCheck.js"></script> -->
+ 
+<script type="text/javascript" src="../resources/jquery/boardInsert.js"></script>
 		
 	
 </body>

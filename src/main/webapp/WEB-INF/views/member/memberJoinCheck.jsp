@@ -71,12 +71,12 @@
 
 
 		<script type="text/javascript"
-			src="../resources/js/memberJoinCheck.js"></script>
-
-
-
+			src="../resources/jquery/memberJoinCheck.js"></script>
+		
+		
+		
 	</div>
-
-
+	
+	
 </body>
 </html>
