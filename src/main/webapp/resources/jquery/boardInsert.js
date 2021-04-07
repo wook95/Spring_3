@@ -15,7 +15,7 @@ $("#btn").click(function(){
 		console.log(s1);
 		console.log($(s2).val());
 		console.log($("this").val());
-		if($(this).valuue==""){
+		if($(this).value==""){
 			result = false;}
 
 	});
