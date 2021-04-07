@@ -12,6 +12,25 @@
 
 <link rel="stylesheet" href="./resources/css/test.css">
 <!-- Bootstrap CSS -->
+<style type="text/css">
+
+	#d1{
+		width : 200px;
+		height : 200px;
+		background-color : red;
+		overflow: hidden;
+		
+	}
+	#d2{
+		width : 50px;
+		height  : 50px;
+		background-color : yellow;
+		margin : 75px auto;
+		
+	}
+
+
+</style>
 <c:import url="./template/bootStrap.jsp"></c:import>
 
 <script type="text/javascript">
@@ -39,6 +58,9 @@
 	</select>
 
 
+	<div id= "d1">
+		<div id ="d2"> </div>
+	</div>
 
 
 
@@ -60,11 +82,10 @@
 		for(let i=1; i<13; i++){
 			
 			$("#mon").append("<option>" +i+ "</option>" );
-			
-			
 		}
 			
-			
+	 c
+		
 			
 	
 	</script>

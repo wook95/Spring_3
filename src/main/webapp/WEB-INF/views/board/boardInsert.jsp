@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 #sample {
-	display: none;
+ display: none; 
 }
 </style>
 
@@ -40,18 +40,26 @@
 			</div>
 
 			<input type="button" id="add" value="ADD"
-				class="btn btn-danger myCheck" onclick="insertCheck()">
+				class="btn btn-info myCheck" >
 			<div id="files"> </div>
 
 
 			<input type="button" id="btn" value="WRITE"
-				class="btn btn-primary myCheck" onclick="insertCheck()">
+				class="btn btn-primary myCheck" >
 		</form>
 	</div>
 
 	<div id="sample">
 		<div class="form-group">
-			<input type="file" class="form-control-file border" name="file">
+			<div class="input-group">
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+    <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+  </div>
+  <div class="input-group-append delete">
+    <input class="btn btn-outline-secondary" id="inputGroupFileAddon04" type="button" value="DELETE">
+  </div>
+</div>
 		</div>
 	</div>
 
@@ -76,8 +84,19 @@
 	});
 	
 	
+/* 	$("#inputGroupFileAddon04").click(function(){
+		alert("delete~!~~!");
+		$("#files").remove();
+	});  	직접 자식한테 거는게 아니라 부모한테 걸어야  된다..!	*/
+
 	
+	//이벤트 위임
 	
+	$("#files").on("click",".delete",function(){
+		$(this).parent().remove();
+		i--;
+		
+	});	
 	
 	
 	</script>
