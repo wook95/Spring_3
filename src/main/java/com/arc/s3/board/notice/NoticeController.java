@@ -100,11 +100,12 @@ public class NoticeController {
 	@RequestMapping(value = "noticeSelect")
 	public String getSelect(BoardDTO boardDTO,Model model) throws Exception{
 		
-		
+
 		boardDTO = noticeService.getSelect(boardDTO);
 		model.addAttribute("dto",boardDTO);
 		model.addAttribute("board","notice");
 		return "board/boardSelect";
+		
 	}
 	
 	
@@ -147,13 +148,13 @@ public class NoticeController {
 
 	@RequestMapping(value = "noticeInsert", method=RequestMethod.POST)
 	public String setInsert(BoardDTO noticeDTO,Model model,MultipartFile[] files) throws Exception{
-		//														files라는 이름과 파라미터 동일해야
+		//													files라는 이름과 파라미터 동일해야- 파라미터는jsp 에 있
 		
-		//int result = noticeService.setInsert(noticeDTO);
+		int result = noticeService.setInsert(noticeDTO,files);
 		
 		
 		
-		int result = 0;
+		
 		
 		
 		

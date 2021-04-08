@@ -40,17 +40,57 @@
   	</select>
   
   
+  <select id="getNum" resultType="java.lang.Long">
+  	select notice_seq.nextval from dual
+  </select>
   
   
   
-  
-  	<select id="getSelect" parameterType="com.arc.s3.board.BoardDTO" resultType="com.arc.s3.board.notice.NoticeDTO">
-  	select * from notice where num = #{num}
+  	<select id="getSelect" parameterType="com.arc.s3.board.BoardDTO" resultMap="noticeSelectResult">
+  	select N.*, NF.*
+  	from notice N left join noticeFiles NF
+  	on N.num = NF.num
+  	where N.num = #{num}
   	</select>
+  	
+  	<resultMap type="NoticeDTO" id="noticeSelectResult">
+  	<!-- 프로퍼티엔 멤버변수 이름 -->
+  	<!-- 1:1일땐 어소시에이션, 집합일땐 컬렉션 -->	
+  		
+  	<id property="num" column="num" /> 
+  	<result property="title" column="title"/>
+  	<result property="writer" column="writer"/>
+  	<result property="regDate" column="regDate"/>
+  	<result property="hit" column="hit"/>
+  	<result property="contents" column="contents"/>
+  	
+	<collection property="noticeFiles" javaType="java.util.List" ofType="BoardFileDTO" >
+		<id  property="fileNum" column="fileNum" />
+		<result property="fileName" column="fileName" />
+		<result property="originName" column="originName" />
+	
+	
+	</collection>	
+  	
+  	
+  	</resultMap>
+  	
+  	
+  	
+  	
   
   	<insert id="setInsert" parameterType="com.arc.s3.board.BoardDTO">
-  	insert into notice(num,title,writer,contents) values (notice_seq.NEXTVAL,#{title},#{writer},#{contents})
+  	insert into notice(num,title,writer,contents) values (#{num},#{title},#{writer},#{contents})
   	</insert>
+  	
+  	
+  	<insert id="setFileInsert" parameterType="BoardFileDTO">
+  	
+  		insert into noticeFiles values(file_seq.nextval,#{num},#{fileName},#{originName})
+  	</insert>
+  	
+  	
+  	
   
   	 <update id="setUpdate" parameterType="com.arc.s3.board.BoardDTO">
  	 update notice set title=#{title}, contents=#{contents} where num=#{num}

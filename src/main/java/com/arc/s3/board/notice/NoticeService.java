@@ -2,12 +2,17 @@ package com.arc.s3.board.notice;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.arc.s3.board.BoardDTO;
+import com.arc.s3.board.BoardFileDTO;
 import com.arc.s3.board.BoardService;
+import com.arc.s3.util.FileManager;
 import com.arc.s3.util.Pager;
 import com.arc.s3.util.Pager_backup;
 
@@ -18,7 +23,12 @@ public class NoticeService implements BoardService {
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
+	@Autowired
+	private FileManager fileManager;
 
+	@Autowired
+	private HttpSession session;
+	//junit test에서는 세션 선언 안된다..! 실제 클라이언트가 들어와야 세선 나옴
 	
 	
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception{
@@ -33,7 +43,7 @@ public class NoticeService implements BoardService {
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception{
 		
-
+		
 		
 //		int perPage = 12; // 페이지당 보여줄 게시물의 갯수
 //		int perBlock = 5; // 한번에 보여줄 숫자의 갯수
@@ -124,11 +134,32 @@ public class NoticeService implements BoardService {
 	}
 	
 	
-	public int setInsert(BoardDTO boardDTO) throws Exception {
+	public int setInsert(BoardDTO boardDTO,MultipartFile[] files) throws Exception {
 		
-		return noticeDAO.setInsert(boardDTO);
+		long num=noticeDAO.getNum();
+		boardDTO.setNum(num);
+		
+		int result = noticeDAO.setInsert(boardDTO);
+		//만들어진 후 글번호 찾아오기
+		
+		
+		
+		for(MultipartFile mf : files) {
+			BoardFileDTO boardFileDTO = new BoardFileDTO();
+			String fileName = fileManager.save("notice", mf, session);
+			
+			boardFileDTO.setNum(num);
+			boardFileDTO.setFileName(fileName);
+			boardFileDTO.setOriginName(mf.getOriginalFilename());
+			
+			noticeDAO.setFileInsert(boardFileDTO);
+		}
+		
+		return result;
 		
 	}
+	
+	
 	public int setUpdate(BoardDTO boardDTO) throws Exception {
 		
 		return noticeDAO.setUpdate(boardDTO);

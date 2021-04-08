@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.arc.s3.board.BoardDAO;
 import com.arc.s3.board.BoardDTO;
+import com.arc.s3.board.BoardFileDTO;
 import com.arc.s3.util.Pager;
 import com.arc.s3.util.Pager_backup;
 
@@ -40,6 +41,19 @@ public class NoticeDAO implements BoardDAO {
 		return sqlSession.selectList(NAMESPACE+"getList",pager);
 		
 	}
+	
+	
+	public int setFileInsert(BoardFileDTO boardFileDTO)throws Exception{
+		
+		
+		
+		
+		return sqlSession.insert(NAMESPACE+"setFileInsert", boardFileDTO);
+	}
+	
+	
+	
+	
 	
 	
 	@Override
@@ -78,7 +92,10 @@ public class NoticeDAO implements BoardDAO {
 	}
 
 
-
+	public long getNum()throws Exception{
+		
+		return sqlSession.selectOne(NAMESPACE+"getNum");
+	}
 	
 	
 	
