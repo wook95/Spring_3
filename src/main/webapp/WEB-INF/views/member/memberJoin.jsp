@@ -35,7 +35,7 @@
 			</div>
 			<div class="form-group">
 				<label for="pw">Confirm the password</label>
-				<input type="password"class="form-control" id="pw2" name="pw">
+				<input type="password"class="form-control" id="pw2" name="pw2">
 				<h6 id="pw2Result"></h6>	
 					
 				<!-- PW 두개는 일치 -->	
