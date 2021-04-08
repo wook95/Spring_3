@@ -22,7 +22,7 @@
 
 	<div class="container">
 		<h2>${board} form</h2>
-		<form action="./${board}Insert" method="post" id="frm">
+		<form action="./${board}Insert" method="post" id="frm" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="writer">Writer:</label> <input type="text"
 					readonly="readonly" value="${member.id}" class="form-control"
@@ -53,7 +53,7 @@
 		<div class="form-group">
 			<div class="input-group">
   <div class="custom-file">
-    <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+    <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" name = files>
     <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
   </div>
   <div class="input-group-append delete">

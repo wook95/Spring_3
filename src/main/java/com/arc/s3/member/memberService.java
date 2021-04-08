@@ -23,6 +23,8 @@ public class memberService {
 	private FileManager filemanager;
 	
 	
+	
+	
 	public int memberJoin(MemberDTO memberDTO,MultipartFile avatar, HttpSession httpSession) throws Exception {
 		
 		String fileName = filemanager.save("member", avatar, httpSession);
@@ -42,8 +44,13 @@ public class memberService {
 	public MemberDTO memberLogin(MemberDTO memberDTO)throws Exception{
 		//id, pw 	받아서 출력 전체
 		//select * from member where id=? pw=?
-		return memberDAO.memberLogin(memberDTO);
 		
+		memberDTO =  memberDAO.memberLogin(memberDTO);
+		MemberFileDTO memberFileDTO = memberDAO.memberLoginFile(memberDTO);
+		memberDTO.setMemberFileDTO(memberFileDTO);
+		
+		
+		return memberDTO;
 	
 	}
 	

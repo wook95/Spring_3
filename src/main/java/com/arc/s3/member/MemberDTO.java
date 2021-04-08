@@ -6,11 +6,22 @@ public class MemberDTO {
 	//변수명과 데이터타입은 컬럼과 동일하게
 	//private, getter,setter, 기본생성자 1개
 	
+	
+	private MemberFileDTO memberFileDTO;
+	
+	
 	private String id;
 	private String pw;
 	private String name;
 	private String phone;
 	private String email;
+	
+	public MemberFileDTO getMemberFileDTO() {
+		return memberFileDTO;
+	}
+	public void setMemberFileDTO(MemberFileDTO memberFileDTO) {
+		this.memberFileDTO = memberFileDTO;
+	}
 	public String getId() {
 		return id;
 	}

@@ -23,12 +23,45 @@
     
     
     
- 	 <select id="memberLogin" parameterType="MemberDTO" resultType="com.arc.s3.member.MemberDTO" >
+ 	 <select id="memberLogin" parameterType="MemberDTO" resultMap="memberLoginResult" >
  	 
- 	 select * from member where id=#{id} and pw=#{pw}
+ 	 select M.* , MF.*
+ 	 from Member M left join MemberFile MF
+ 	 ON M.id=MF.id
+ 	 where M.id=#{id} and M.pw=#{pw}
  	 
  	 </select>
+ 	 
+ 	 <resultMap type="MemberDTO" id="memberLoginResult">
+ 	 	<id property="id" column="id"/>
+ 	 	<result property="pw" column="pw"/>
+ 	 	<result property="name" column="name"/>
+ 	 	<result property="email" column="email"/>
+ 	 	<result property="phone" column="phone"/>
+ 	 	<association property="memberFileDTO" javaType="com.arc.s3.member.MemberFileDTO" resultMap="memberFileResult">
+ 	 		<!-- <id property="num" column="num"/>
+ 	 		<result property="id" column="id"/> 생략가능, 위에 있기때문
+ 	 		<result property="fileName" column="fileName"/>
+ 	 		<result property="originName" column="originName"/>
+ --> 	 	
+ 	 	</association>
+ 	 </resultMap>
     
+    <resultMap type="com.arc.s3.member.MemberFileDTO" id="memberFileResult">
+   			 <id property="num" column="num"/>
+ 	 		<!-- <result property="id" column="id"/> 생략가능, 위에 있기때문-->
+ 	 		<result property="fileName" column="fileName"/>
+ 	 		<result property="originName" column="originName"/>
+    
+    </resultMap>
+    
+    
+     
+     <select id="memberLoginFile" parameterType="MemberDTO" resultType="com.arc.s3.member.MemberFileDTO">
+     	select * from memberFile where id=#{id}
+     </select>
+     
+     
      
      <!-- 엘리아스로 conf에서 선언하고, 루트에 말해줬다 -->
       <update id="memberUpdate" parameterType="MemberDTO">

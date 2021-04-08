@@ -18,6 +18,8 @@
 <h3> name = ${member.name}</h3>
 <h3> email = ${member.email}</h3>
 <h3> phone = ${member.phone}</h3>
+<h3> <img src="../resources/upload/member/${member.memberFileDTO.fileName}">	</h3>
+
 
 <a href="./memberUpdate">정보수정</a>
 <a href="./memberDelete">탈퇴</a>
