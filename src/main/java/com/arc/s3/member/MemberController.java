@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -42,10 +43,21 @@ public class MemberController {
 		
 	}
 	
+	//멀티파트파일은 root xml에 선언한 bean,,
 	
 	@RequestMapping (value = "memberJoin", method = RequestMethod.POST)
-	public String memberJoin(MemberDTO memberDTO,Model model) throws Exception{
-	int result  = memberService.memberJoin(memberDTO);
+	public String memberJoin(MemberDTO memberDTO,Model model, MultipartFile avatar,HttpSession httpSession) throws Exception{
+	int result  = memberService.memberJoin(memberDTO,avatar,httpSession);
+	
+	
+		
+//		System.out.println(avatar.getName());
+//		System.out.println(avatar.getOriginalFilename());
+//		System.out.println(avatar.getSize());
+//		System.out.println(avatar.isEmpty());
+		
+		
+		
 	
 		String message = "회원가입실패";
 		String path = "./memberJoin";

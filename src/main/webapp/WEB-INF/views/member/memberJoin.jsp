@@ -18,7 +18,7 @@
 <div class="container mt-2">
 		<h2 class="mt-4">Member Join Page</h2>
 
-		<form action="./memberJoin" method="post" id="frm">
+		<form action="./memberJoin" method="post" id="frm" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="id">ID</label> 
 				<input type="text" class="form-control"	id="id" name="id">
@@ -55,7 +55,19 @@
 				<label for="phone">Phone</label> 
 				<input type="text" class="form-control"	id="phone" name="phone">
 				<!-- 비어 있으면 X -->
-			</div>			
+			</div>
+			
+			
+			
+			
+				<div class="form-group">
+				<label for="avatar">Phone</label> 
+				<input type="file" class="form-control etc"	id="avatar" name="avatar">
+			</div>	
+			
+			
+			
+					
 			<input type="submit" id="btn" value="JOIN" class="btn btn-primary">
 		</form>
 	</div>

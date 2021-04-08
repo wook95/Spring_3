@@ -1,7 +1,17 @@
 package com.arc.s3.member;
 
+import java.io.File;
+import java.util.Calendar;
+import java.util.UUID;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.FileCopyUtils;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.arc.s3.util.FileManager;
 
 @Service
 public class memberService {
@@ -9,9 +19,22 @@ public class memberService {
 	@Autowired
 	private MemberDAO memberDAO;
 	
+	@Autowired
+	private FileManager filemanager;
 	
-	public int memberJoin(MemberDTO memberDTO) throws Exception {
+	
+	public int memberJoin(MemberDTO memberDTO,MultipartFile avatar, HttpSession httpSession) throws Exception {
+		
+		String fileName = filemanager.save("member", avatar, httpSession);
+		MemberFileDTO memberFileDTO = new MemberFileDTO();
+		memberFileDTO.setId(memberDTO.getId());
+		memberFileDTO.setOriginName(avatar.getOriginalFilename());
+		memberFileDTO.setFileName(fileName);
+		
+		
+		int result = memberDAO.setFileInsert(memberFileDTO);
 		return memberDAO.memberJoin(memberDTO);
+		
 	}
 	
 	

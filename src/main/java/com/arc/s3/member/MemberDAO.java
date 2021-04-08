@@ -63,4 +63,12 @@ public class MemberDAO {
 		}
 		
 		
+		//setFileInsert
+		public int setFileInsert(MemberFileDTO memberFileDTO) throws Exception{
+			
+			return sqlSession.insert(NAMESPACE+".setFileInsert",memberFileDTO);
+			
+		}
+		
+		
 	}
