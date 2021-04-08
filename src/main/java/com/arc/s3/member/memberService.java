@@ -32,9 +32,9 @@ public class memberService {
 		memberFileDTO.setFileName(fileName);
 		
 		
-		int result = memberDAO.setFileInsert(memberFileDTO);
-		return memberDAO.memberJoin(memberDTO);
-		
+		int result = 	memberDAO.memberJoin(memberDTO);
+		result =  memberDAO.setFileInsert(memberFileDTO);
+		return  result;
 	}
 	
 	
