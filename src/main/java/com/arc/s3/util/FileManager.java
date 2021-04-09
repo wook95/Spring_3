@@ -14,6 +14,21 @@ import org.springframework.web.multipart.MultipartFile;
 public class FileManager {
 
 	
+	public boolean delete(String name,String fileName, HttpSession session) throws Exception{
+		//폴더명,파일명,실제경로 받아옴
+		
+		//1. 경로설정
+		String path = session.getServletContext().getRealPath("resources/upload/"+name);
+		
+		File file = new File(path,fileName);
+		boolean check = false;
+		if(file.exists()) {
+		 check	= file.delete();
+		}
+		
+		return check;
+		
+	}
 	
 	public File makePath(HttpSession httpSession) throws Exception{
 		

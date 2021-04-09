@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.arc.s3.board.BoardDAO;
 import com.arc.s3.board.BoardDTO;
+import com.arc.s3.board.BoardFileDTO;
 import com.arc.s3.util.Pager;
 import com.arc.s3.util.Pager_backup;
 
@@ -78,6 +79,14 @@ public class QnaDAO  implements BoardDAO{
 		
 		return sqlSession.insert(namespace+"setReply", qnaDTO);
 		
+	}
+	
+	public int setFileInsert(BoardFileDTO boardFileDTO)throws Exception{
+		
+		
+		
+		
+		return sqlSession.insert(namespace+"setFileInsert", boardFileDTO);
 	}
 	
 	

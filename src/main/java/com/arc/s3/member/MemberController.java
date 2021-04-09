@@ -89,7 +89,7 @@ public class MemberController {
 	@RequestMapping(value= "memberDelete" )
 	public String memberDelete(MemberDTO memberDTO,HttpSession session) throws Exception{
 		memberDTO = (MemberDTO) session.getAttribute("member");
-		int result = memberService.memberDelete(memberDTO);
+		int result = memberService.memberDelete(memberDTO,session);
 		session.invalidate();
 		return "redirect:../";
 	}

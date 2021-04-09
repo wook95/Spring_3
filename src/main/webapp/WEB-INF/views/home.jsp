@@ -69,24 +69,19 @@
 
 	<script type="text/javascript">
 	
-		$("#btn2").click(function(){
-			
-		
-			$("#result").prepend('<li>go</li>');
+	$("#btn2").click(function() {
 		
 		
-		});
-
+		$.get("./test",function(data){
+			
+			$("#d2").html(data);
+			
+		}z);
 		
-			
-		for(let i=1; i<13; i++){
-			
-			$("#mon").append("<option>" +i+ "</option>" );
-		}
-			
-	 c
 		
-			
+	});
+		
+		
 	
 	</script>
 

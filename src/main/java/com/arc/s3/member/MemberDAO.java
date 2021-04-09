@@ -22,6 +22,16 @@ public class MemberDAO {
 	
 	
 	
+	
+	
+	public MemberFileDTO getMemberFile(MemberDTO memberDTO)throws Exception{
+		
+		return sqlSession.selectOne(NAMESPACE+".getMemberFile", memberDTO);
+		
+		
+	}
+	
+	
 	//login - id pw를 받아서 조회
 	
 	public int memberJoin(MemberDTO mDTO) throws Exception{

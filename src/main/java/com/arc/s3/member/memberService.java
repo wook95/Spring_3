@@ -54,8 +54,12 @@ public class memberService {
 	
 	}
 	
-	public int memberDelete(MemberDTO memberDTO) throws Exception{
+	public int memberDelete(MemberDTO memberDTO,HttpSession session) throws Exception{
 		
+		MemberFileDTO memberFileDTO = memberDAO.getMemberFile(memberDTO);
+		//지울라고 하는 이름 파일디티오에 넣어놈~!~!
+		//메서드로 만들어보자 - 파일메니저
+		boolean check = filemanager.delete("member", memberFileDTO.getFileName(), session);
 		return memberDAO.memberDelete(memberDTO);
 	}
 	
@@ -64,3 +68,6 @@ public class memberService {
 		return memberDAO.memberUpdate(memberDTO);
 	}
 }
+
+
+	

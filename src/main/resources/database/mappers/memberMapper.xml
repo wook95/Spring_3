@@ -21,6 +21,12 @@
     
     </insert>
     
+    <select id="getMemberFile" parameterType="MemberDTO" resultType="com.arc.s3.member.MemberFileDTO">
+    	select fileName from memberFile where id=#{id}
+    
+    </select>
+    
+    
     
     
  	 <select id="memberLogin" parameterType="MemberDTO" resultMap="memberLoginResult" >
