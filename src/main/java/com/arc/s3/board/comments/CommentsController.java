@@ -40,6 +40,11 @@ public class CommentsController {
 	}
 	
 	
-	
+	@PostMapping("commentsDelete")
+	public void commentDelete(int[] commentsNum) throws Exception{
+		
+		
+		
+	}
 	
 }

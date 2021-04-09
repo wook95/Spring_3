@@ -16,7 +16,7 @@ public class CommentsDAO {
 	private final String NAMESPACE ="com.arc.s3.board.comments.CommentsDAO.";
 	
 	
-	public List<CommentsDTO>  getList(CommentsDTO commentsDTO) throws Exception{
+	public List<CommentsDTO> getList(CommentsDTO commentsDTO) throws Exception{
 		
 		return sqlSession.selectList(NAMESPACE+"getList", commentsDTO);
 		

@@ -99,7 +99,7 @@
 	
 	
 	
-	<script src=" " type="text/javascript"></script>
+	<script src="../resources/jquery/comments.js" type="text/javascript"></script>
 	<script type="text/javascript">
 	
 	const frm = document.getElementById("frm");

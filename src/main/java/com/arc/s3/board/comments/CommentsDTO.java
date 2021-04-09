@@ -5,16 +5,17 @@ import java.sql.Date;
 public class CommentsDTO {
 
 	
-	private long commnetsNum;
+	private long commentsNum;
 	private long num;
 	private String writer;
 	private String contents;
 	private Date regDate;
-	public long getCommnetsNum() {
-		return commnetsNum;
+	
+	public long getCommentsNum() {
+		return commentsNum;
 	}
-	public void setCommnetsNum(long commnetsNum) {
-		this.commnetsNum = commnetsNum;
+	public void setCommentsNum(long commentsNum) {
+		this.commentsNum = commentsNum;
 	}
 	public long getNum() {
 		return num;

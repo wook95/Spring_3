@@ -17,7 +17,7 @@ getList();
 function getList(){
 $.get("../comments/commentsList?num="+num,function(data){
 	
-	consol.log(data);
+	console.log(data);
 	$("#comments").html(data.trim());
 	
 	
@@ -40,13 +40,31 @@ $("#remove").click(function(){
 			
 		let ch = $(this).prop();
 		if(ch){
-			alert($(this).val());
+			ar.push($(this).val());
 		}
 			
 			
-		});
+		}); //end of each
 		
-	});
+		
+		$.ajax({
+			type : "POST",
+			url : "../comments/commentsDelete",
+			data : {commentsNum:ar},
+			traditiondal : true, //배열 보내고 싶을때 ,,
+			success:function(data){
+				
+				alert(data);
+				
+			}
+			
+			
+		})
+	
+
+
+		
+	});  //end of function
 	
 	
 })
