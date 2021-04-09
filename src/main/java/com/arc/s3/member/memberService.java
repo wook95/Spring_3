@@ -23,6 +23,9 @@ public class memberService {
 	private FileManager filemanager;
 	
 	
+	public MemberDTO memberIdCheck(MemberDTO memberDTO) throws Exception {
+		return memberDAO.memberIdCheck(memberDTO);
+	}
 	
 	
 	public int memberJoin(MemberDTO memberDTO,MultipartFile avatar, HttpSession httpSession) throws Exception {

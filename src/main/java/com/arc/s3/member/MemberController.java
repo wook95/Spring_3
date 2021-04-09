@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -114,4 +115,21 @@ public class MemberController {
 		return "redirect:../";
 		
 	}
+	
+	@GetMapping("memberIdCheck")
+	public String memberIdcheck(MemberDTO memberDTO,Model model) throws Exception{
+		
+		memberDTO = memberService.memberIdCheck(memberDTO);
+		
+		String result = "0"; //0 사용불가 1 가능
+		if(memberDTO==null) {
+			
+			result="1";
+		}
+		model.addAttribute("result", result);
+		
+		return "common/ajaxResult";
+	}
+	
+	
 }

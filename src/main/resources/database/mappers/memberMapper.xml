@@ -27,6 +27,10 @@
     </select>
     
     
+    <select id="memberIdCheck" parameterType="MemberDTO" resultType="MemberDTO">
+		select id from member where id=#{id}
+	</select>
+    
     
     
  	 <select id="memberLogin" parameterType="MemberDTO" resultMap="memberLoginResult" >

@@ -101,3 +101,32 @@ btn.addEventListener("click",function(){
 	else{alert("필수항목을 입력해주세요")}
 	
 });
+
+
+//id 중복확인
+
+$("#id").blur(function(){
+	
+	let id = $("#id").val();
+	//jquery 문법
+	
+	$.get("./memberIdCheck?id="+id, function(result){
+		
+		
+		result = result.trim(); // 공백제
+		let str = "사용가능ID 입니다.";
+		
+		if(result=='0'){
+			str="중복 ID";
+		}
+		
+		
+		$("#idCheckResult").html(str);
+	});
+	
+});
+
+
+
+
+

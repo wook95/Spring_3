@@ -16,6 +16,7 @@
   		<typeAlias type="com.arc.s3.board.qna.QnaDTO" alias="QnaDTO"/>
   		<typeAlias type="com.arc.s3.board.BoardDTO" alias="BoardDTO"/>
   		<typeAlias type="com.arc.s3.board.BoardFileDTO" alias="BoardFileDTO"/>
+  		<typeAlias type="com.arc.s3.board.comments.CommentsDTO" alias="CommentsDTO"/>
   		
   	</typeAliases>
   	

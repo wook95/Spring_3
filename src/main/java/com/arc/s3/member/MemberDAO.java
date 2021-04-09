@@ -20,7 +20,10 @@ public class MemberDAO {
 	
 	private String NAMESPACE = "com.arc.s3.member.MemberDAO";
 	
-	
+	public MemberDTO memberIdCheck(MemberDTO memberDTO)throws Exception {
+		
+		return sqlSession.selectOne(NAMESPACE+".memberIdCheck", memberDTO);
+	}
 	
 	
 	

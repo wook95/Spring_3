@@ -21,6 +21,7 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
+
 	<h1>${board} select</h1>
 	
 	<table>
@@ -58,6 +59,28 @@
 	</div>
 	
 	
+	<!-- 댓글 리스트 -->
+	<div id = "comments" title="${dto.num}">
+	
+	
+	</div>
+	
+	<div>
+		<div class="form-group">
+  		<label	 for="usr">Name:</label>
+  		<input type="text" class="form-control" id="writer">
+		</div>
+	
+		<div class="form-group">
+  		<label for="comments">Comment:</label>
+  		<textarea class="form-control" rows="5" id="contents"></textarea>
+		</div>
+		
+		 <button type="button" class="btn btn-success" id="writeButton">Write</button>
+	</div>
+	
+	
+	
 	<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
 	<a href="#" id="del" class="btn btn-info">Delete</a>
 
@@ -75,6 +98,8 @@
 	
 	
 	
+	
+	<script src=" " type="text/javascript"></script>
 	<script type="text/javascript">
 	
 	const frm = document.getElementById("frm");
@@ -93,7 +118,6 @@
 		}
 		
 	})
-	
 	
 	</script>
 	

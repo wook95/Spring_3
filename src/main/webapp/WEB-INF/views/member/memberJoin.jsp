@@ -23,6 +23,7 @@
 				<label for="id">ID</label> 
 				<input type="text" class="form-control"	id="id" name="id">
 				<h6 id="idResult"></h6>
+				<h6 id="idCheckResult"></h6>
 				<!-- ID 는 6글자 이상 -->
 				
 				
@@ -75,7 +76,7 @@
 		
 <!-- id6글자 이상, pw 두개는 일치, name은 비어있음 안돼! 이메일, 폰 비어있음 안돼 --alert로 알려줄수있게 -->
 
-	<!--  <script type="text/javascript" src="../resources/js/memberJoin.js"></script>
--->
+	  <script type="text/javascript" src="../resources/js/memberJoin.js"></script>
+
 </body>
 </html>
