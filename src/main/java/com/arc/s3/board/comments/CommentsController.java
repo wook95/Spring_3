@@ -21,7 +21,6 @@ public class CommentsController {
 	
 	@GetMapping("commentsList")
 	public void getList(CommentsDTO commentsDTO,Model model) throws Exception {
-		System.out.println(commentsDTO.getNum());
 		List<CommentsDTO> ar = commentsService.getList(commentsDTO);
 		model.addAttribute("list", ar);
 		

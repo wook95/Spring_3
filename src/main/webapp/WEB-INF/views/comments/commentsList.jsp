@@ -28,3 +28,5 @@
 </table>
 
 <button type="button" class="btn btn-danger" id="remove">delete</button>
+
+<script type="text/javascript" src="../resources/jquery/comments.js"></script>
