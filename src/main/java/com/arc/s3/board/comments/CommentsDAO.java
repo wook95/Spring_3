@@ -27,5 +27,23 @@ public class CommentsDAO {
 	}
 	
 	
+	public int commentsDelete(int[] commentsNum) throws Exception{
+		
+		int eachCommNum;
+		int result=0;
+		if(commentsNum != null) {
+		for(int i=0;i<commentsNum.length;i++) {
+			
+			eachCommNum = commentsNum[i];
+		sqlSession.delete(NAMESPACE+"commentsDelete", eachCommNum);
+			
+		}
+		
+			result=1;
+		}
+		
+		return result;
+	}
+	
 	
 }

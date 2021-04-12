@@ -23,6 +23,8 @@
 	</insert>
 
 
-	
+	<delete id="commentsDelete" parameterType="java.lang.Long">
+		delete from comments where commentsNum=#{eachCommNum}
+	</delete>
 
 </mapper>

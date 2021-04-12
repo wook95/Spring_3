@@ -26,4 +26,11 @@ public class CommentsService {
 		return commentsDAO.setInsert(commentsDTO);
 	}
 	
+	public int commentsDelete(int[] commentsNum) throws Exception{
+		
+		
+		return commentsDAO.commentsDelete(commentsNum);
+	}
+	
+	
 }

@@ -66,15 +66,6 @@ $.get("../comments/commentsList?num="+num,function(data){
 
 
 
-
-
-
-
-
-
-
-
-
 $("#writeButton").click(function(){
 	
 	alert("버튼 눌름");

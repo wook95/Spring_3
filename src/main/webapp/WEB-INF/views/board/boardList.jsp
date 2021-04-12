@@ -112,9 +112,9 @@
 		let curPage = $(this).attr("title")
 		//location.href = "./${board}List?curPage=" + curPage + "&kind=${pager.kind}&search=${pager.search}"
 		
-		let search = '${pager.search}';
 		$("#curPage").val(curPage);
-		
+		let search = '${pager.search}';
+		$("#frm").submit();
 		
 		
 		

@@ -31,6 +31,26 @@ public class NoticeService implements BoardService {
 	//junit test에서는 세션 선언 안된다..! 실제 클라이언트가 들어와야 세선 나옴
 	
 	
+	
+	public int setFileDelete(BoardFileDTO boardFileDTO)throws Exception{
+		
+		//파일네임 먼저 조회해와야한다 --> filenNum만 받아와서 정보가 없다 !
+		//1. 조회
+		boardFileDTO = noticeDAO.getFileSelect(boardFileDTO);
+		
+		//2. table 삭제
+		int result = noticeDAO.setFileDelete(boardFileDTO);
+		
+		//3. hdd 삭제
+		if(result>0) {
+		fileManager.delete("notice",boardFileDTO.getFileName(),session);
+		}
+		
+		
+		return result;
+	}
+	
+	
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception{
 		
 		
@@ -160,7 +180,22 @@ public class NoticeService implements BoardService {
 	}
 	
 	
-	public int setUpdate(BoardDTO boardDTO) throws Exception {
+	public int setUpdate(BoardDTO boardDTO,MultipartFile[] files) throws Exception {
+		
+		for(MultipartFile multipartFile: files) {
+			BoardFileDTO boardFileDTO = new BoardFileDTO();
+			//1. file을 hdd에 저장
+			String fileName = fileManager.save("notice", multipartFile, session);
+			boardFileDTO.setFileName(fileName);
+			boardFileDTO.setOriginName(multipartFile.getOriginalFilename());
+			boardFileDTO.setNum(boardDTO.getNum());
+			
+			//2. db에 인서트
+			noticeDAO.setFileInsert(boardFileDTO);
+		}
+		
+		
+		
 		
 		return noticeDAO.setUpdate(boardDTO);
 		

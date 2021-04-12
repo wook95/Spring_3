@@ -20,67 +20,63 @@ public class NoticeDAO implements BoardDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.arc.s3.board.notice.NoticeDAO."; 
-	
-	
+
+
 	public long getTotalCount(Pager pager) throws Exception{
-		
+
 		return sqlSession.selectOne(NAMESPACE+"getTotalCount",pager);
-		
+
 	}
-	
+
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception{
-		
-//		HashMap<String, Long> map = new HashMap<String, Long>();
-//		
-//		map.put("startRow", 1L);
-//		map.put("lastRow",10L);
-		
-	
-		
+
+		//		HashMap<String, Long> map = new HashMap<String, Long>();
+		//		
+		//		map.put("startRow", 1L);
+		//		map.put("lastRow",10L);
+
+
+
 		return sqlSession.selectList(NAMESPACE+"getList",pager);
-		
+
 	}
-	
-	
+
+
 	public int setFileInsert(BoardFileDTO boardFileDTO)throws Exception{
-		
-		
-		
-		
 		return sqlSession.insert(NAMESPACE+"setFileInsert", boardFileDTO);
 	}
-	
-	
-	
-	
-	
-	
+
+
+	public BoardFileDTO getFileSelect(BoardFileDTO boardFileDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getFileSelect", boardFileDTO);
+	}
+
+
+
 	@Override
 	public NoticeDTO getSelect(BoardDTO boardDTO) throws Exception{
-		
-		
 		return sqlSession.selectOne(NAMESPACE+"getSelect",boardDTO);
 	}
-	
-	
-	
-	
+
+
+
+
 	@Override
 	public int setInsert(BoardDTO boardDTO) throws Exception {
-		
+
 		return sqlSession.insert(NAMESPACE+"setInsert",boardDTO);
-		
+
 	}
 	@Override
 	public int setUpdate(BoardDTO boardDTO) throws Exception {
-		
+
 		return sqlSession.update(NAMESPACE+"setUpdate",boardDTO);
-		
+
 	}
 	@Override
 	public int setDelete(BoardDTO boardDTO) throws Exception {
-		
+
 		return sqlSession.delete(NAMESPACE+"setDelete", boardDTO);
 
 	}
@@ -93,11 +89,14 @@ public class NoticeDAO implements BoardDAO {
 
 
 	public long getNum()throws Exception{
-		
+
 		return sqlSession.selectOne(NAMESPACE+"getNum");
 	}
-	
-	
-	
-	
+
+
+
+	public int setFileDelete(BoardFileDTO boardFileDTO) throws Exception{
+
+		return sqlSession.delete(NAMESPACE+"setFileDelete", boardFileDTO);
+	}
 }

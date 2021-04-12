@@ -45,6 +45,9 @@
   </select>
   
   
+  	<delete id="setFileDelete" parameterType="BoardFileDTO">
+  	delete from noticeFiles where fileNum=#{fileNum}
+  	</delete>
   
   	<select id="getSelect" parameterType="com.arc.s3.board.BoardDTO" resultMap="noticeSelectResult">
   	select N.*, NF.*
@@ -52,6 +55,8 @@
   	on N.num = NF.num
   	where N.num = #{num}
   	</select>
+  	
+  	
   	
   	<resultMap type="NoticeDTO" id="noticeSelectResult">
   	<!-- 프로퍼티엔 멤버변수 이름 -->
@@ -75,6 +80,10 @@
   	
   	</resultMap>
   	
+  	
+  	<select id="getFileSelect" parameterType="BoardFileDTO" resultType="BoardFileDTO">
+  		select * from noticeFiles where fileNum = ${fileNum}
+  	</select>
   	
   	
   	

@@ -40,9 +40,10 @@ public class CommentsController {
 	
 	
 	@PostMapping("commentsDelete")
-	public void commentDelete(int[] commentsNum) throws Exception{
+	public void commentDelete(int[] commentsNum,Model model) throws Exception{
 		
-		
+		int result = commentsService.commentsDelete(commentsNum);
+		model.addAttribute("result", result);
 		
 	}
 	
